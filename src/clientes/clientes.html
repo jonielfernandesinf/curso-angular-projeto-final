@@ -1,0 +1,60 @@
+<section class="container">
+    <div class="row">
+        <form class="col">
+            <div class="form-group">
+                <label for="nomeCliente">Nome completo</label>
+                <input type="text" class="form-control" ng-model="cliente.nome" id="nomeCliente"
+                    aria-describedby="nomeClienteHelp" placeholder="Nome do Cliente">
+                
+                <label for="emailCliente">E-mail</label>
+                <input type="email" class="form-control" ng-model="cliente.email" id="emailCliente"
+                    aria-describedby="emailClienteHelp" placeholder="E-mail do Cliente">
+                    
+                <div class="row">
+                    <div class="col-sm">
+                        <label for="cpfCliente">CPF</label>
+                        <input type="text" class="form-control" ng-model="cliente.cpf" id="cpfCliente"
+                            aria-describedby="cpfClienteHelp" placeholder="CPF do Cliente">
+                    </div>
+                    <div class="col-sm">
+                        <label for="dataNascimentoCliente">Data de nascimento</label>
+                        <input type="text" class="form-control" ng-model="cliente.dataNascimento" id="dataNascimentoCliente"
+                            aria-describedby="dataNascimentoClienteHelp" placeholder="Data de nascimento do cliente">
+                    </div>
+                </div>
+            </div>
+            <div style="color: red;">{{mensagemErro}}</div>
+            <button type="button" class="btn btn-primary" ng-click="incluir()">Salvar</button>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">E-mail</th>
+                        <th scope="col">Data de Nascimento</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="fruta in frutas">
+                        <th scope="row">{{fruta.id}}</th>
+                        <td>{{fruta.cpf}}</td>
+                        <td>{{fruta.nome}}</td>
+                        <td>{{fruta.email}}</td>
+                        <td>{{fruta.dataNascimento}}</td>
+                        <td>
+                            <button ng-click="excluir(fruta.id)" class="btn btn-danger btn-sm" type="button">
+                                Excluir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
